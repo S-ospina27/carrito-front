@@ -1,0 +1,39 @@
+#offcanvasRight {
+  background-color: #f8f9fa;
+}
+
+.offcanvas-header {
+  background-color: #212529;
+  color: #FF4069;
+}
+
+.offcanvas-body {
+  padding: 20px;
+}
+
+table {
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+}
+
+.table thead th {
+    color: #fff;
+    background-color: #212529;
+  }
+  
+th {
+  background-color: #212529;
+  color: #fff;
+}
+
+.btn-cart {
+  background-color: #fca311;
+  border-color: #fca311;
+  color: #fff;
+}
+
+.btn-cart:hover {
+  background-color: #e69500;
+  border-color: #e69500;
+  color: #fff;
+}

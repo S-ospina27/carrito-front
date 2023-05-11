@@ -3,7 +3,7 @@ let new_data = {};
 let active_data = { id: "", name: "", url: "" };
 let table_cuerpo = document.getElementById("table_decoration");
 const carrito_show = document.getElementById("carrito-show");
-
+const alert = document.getElementById("alert");
 if (localStorage.getItem("carrito") === null) {
   localStorage.setItem("carrito", "");
 } else {
@@ -144,19 +144,31 @@ getDataCards("characters-button");
 
 const username = document.getElementById("username");
 const form_shopping = document.getElementById("shooping_form");
-if (form_shopping) {
+//if (form_shopping) {
   form_shopping.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("submit");
+    if (["", "0"].includes(username.value)) {
+      username.classList.add("is-invalid");
+      return false;
+    }
     const host = "http://127.0.0.1:8000/create";
     axios
-      .post(host, {
-        data: JSON.parse(localStorage.getItem("carrito")),
-        username: username.value,
-      })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.status === "success") {
+    .post(host, {
+      data: JSON.parse(localStorage.getItem("carrito")),
+      username: username.value,
+    })
+    .then((res) => {
+      if (res.data.status === "success") {
+          username.classList.add("is-valid");
+          alert.className = "alert alert-success text-center";
+          alert.textContent = res.data.message;
+          setTimeout(() => {
+            alert.className = "";
+            alert.textContent = "";
+            username.classList.remove("is-valid");
+            document.getElementById("button_close").click();
+          }, 3500);
+
           localStorage.removeItem("carrito");
           username.value = "";
           data = [];
@@ -165,4 +177,4 @@ if (form_shopping) {
         }
       });
   });
-}
+

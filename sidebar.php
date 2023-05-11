@@ -1,14 +1,13 @@
 <div class="offcanvas offcanvas-end bg-light border border-primary shadow-lg w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <!-- <h5 id="offcanvasRightLabel">Offcanvas right</h5> -->
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close text-reset" id="button_close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <h1 class="text-center">CARRITO</h1>
   <div class="offcanvas-body">
     <form id="shooping_form">
       <div class="row">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="username" required>
+          <input type="text" class="form-control" id="username" autocomplete="off" placeholder="Registra tu nombre" >
           <button  type="submit" class="btn btn-danger" >Comprar</button>
         </div>
       </div>
@@ -24,6 +23,8 @@
       </thead>
       <tbody id="table_decoration"></tbody>
     </table>
+    <div id="alert" role="alert">
 
+    </div>
   </div>
 </div>
